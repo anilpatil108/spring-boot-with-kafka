@@ -59,5 +59,6 @@ This Project covers how to use Spring Boot based microservices with Spring Kafka
  
  
 ####7. Delete Profile
-    URL 	                                     Method
-    http://localhost:9090/profile/Anil            DELETE 
+
+     URL 	                                       Method
+     http://localhost:9090/profile/Anil            DELETE 
