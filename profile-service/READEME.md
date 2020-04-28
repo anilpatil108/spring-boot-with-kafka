@@ -1,58 +1,43 @@
- 1. Clone the Git repository.
-Open Command Prompt and Change directory (cd) to folder containing pom.xml
-Open Eclipse
+# Spring Boot with Kafka
 
-    File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
-    Select the project
+This Project covers how to use Spring Boot based microservices with Spring Kafka.
 
-We have to run assigment project using 
-mvn spring-boot:run
+## 1. Start kafka
+    ## Start Zookeeper
+    - `bin/zookeeper-server-start.sh config/zookeeper.properties`
+    
+    ## Start Kafka Server
+    - `bin/kafka-server-start.sh config/server.properties` 
+## 2. Run profile-service
+        mvn spring-boot:run
 
-2. Run authorization-service and profile-service
-3. Start kafka 
-4. To monitor and manage your application we are using bellow login url and json
+####3. Adding  Profile
 
-URL 	                                     Method
-http://localhost:9090/profile	               POST
-
-{
-	"username":"admin",
-	"password":"password"
-}
-5. Generated token We have to use have to use for every GET/POST/PUT/DELETE request 
-
-6. Post method url and json 
-
- URL 	                                     Method
- http://localhost:9090/profile	               POST
+    URL 	                                     Method
+    http://localhost:7070/profile	               POST
+    
+    Request Payload:
+    {
+ 	   "username":"Anil",
+ 	   "address":"Pune",
+ 	   "phoneNumber":"7799811108"
+     }
  
- {
- 	"username":"Anil",
- 	"address":"Pune",
- 	"phoneNumber":"779981118"
- }
- 6. PUT method url and json 
- 
- URL 	                                     Method
-  http://localhost:9090/profile	               GET
+####4. Update  Profile
   
- {
- 	        "username":"Anil",
-        	"address":"Pune",
-        	"phoneNumber":"779981118"
- }
-  7. PUT method url and json 
-  
-  URL 	                                     Method
-   http://localhost:9090/profile	           PUT
+    URL 	                                     Method
+     http://localhost:7070/profile	              PUT
    
-  {
-  	   "username":"Anil",
+     Request Payload:
+     {
+  	    "username":"Anil",
       	"address":"Pune1",
       	"phoneNumber":"9867710857"
-  }
+     }
+  
  
- 8. DELETE method url
-  URL 	                                        Method
-  http://localhost:9090/profile/Anil            DELETE 
+ 
+####5. Delete  Profile
+    URL 	                                     Method
+    http://localhost:7070/profile/Anil            DELETE 
  
