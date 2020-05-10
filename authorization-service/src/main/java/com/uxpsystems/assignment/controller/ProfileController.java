@@ -56,7 +56,7 @@ public class ProfileController {
 		} catch (IOException e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping("/{username}")
@@ -66,11 +66,10 @@ public class ProfileController {
 		} catch (IOException e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 	
 	public void sendToKafka(ProfileEvent event) throws IOException {
 		kafkaTemplate.send("profile-service", event);
 	}
-	
 }
